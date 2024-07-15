@@ -1,0 +1,20 @@
+{
+  "name": "mern-blog",
+  "version": "1.0.0",
+  "description": "안녕하세요! 저희 블로그에 오신 것을 환영합니다. 이 블로그는 최신 웹 개발 기술을 활용하여 만든 공간입니다. MERN 스택(MongoDB, Express, React, Node.js)을 사용하여 구축된 저희 블로그는 빠르고, 직관적이며, 사용자 친화적인 인터페이스를 제공합니다.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon api/index.js",
+    "start": "node api/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.1",
+    "nodemon": "^3.1.4"
+  }
+}
