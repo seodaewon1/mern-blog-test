@@ -5,7 +5,7 @@ export default {
     extend: {
       fontFamily: {
         Popphins: ["Poppins", "sans-serif"],
-        Josefin: ["Josefin Slab", "sans-serif"],
+        Plaster: ["Plaster", "sans-serif"],
       },
     },
   },

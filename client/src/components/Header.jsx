@@ -8,20 +8,20 @@ export default function Header() {
       className="flex justify-between p-4 border-b-2 border-black items-center "
     >
       <h1>
-        <Link to="/" className="text-4xl font-Josefin font-black">
-          WEOBLOG
+        <Link to="/" className="text-4xl font-Plaster font-black">
+          MEOBLOG
         </Link>
       </h1>
       <nav>
-        <ul className="flex font-Popphins">
-          <li className="px-4 font-">
+        <ul className="flex font-Popphins text-2xl">
+          <li className="px-4">
             <Link to="/home">Home</Link>
           </li>
           <li className="px-4">
-            <Link to="/sign-in">SignIn</Link>
+            <Link to="/sign-in">Sign In</Link>
           </li>
           <li className="px-4">
-            <Link to="/sign-up">SignUp</Link>
+            <Link to="/sign-up">Sign Up</Link>
           </li>
           <button>
             <IoMdMenu className="w-6 h-6" />
