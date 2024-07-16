@@ -8,15 +8,18 @@ https://insomnia.rest/
 
 ## client
 
-```
+```bash
 npm create-vite .
 cd client
 npm run dev
 npm i react-router-dom
 npm i react-icons
+
+npm install @reduxjs/toolkit
+npm install react-redux
 ```
 
-```
+```bash
 index css
 @tailwind base;
 @tailwind components;
@@ -47,6 +50,8 @@ npm i express
 npm i nodemon
 npm i mongoose
 npm i dotenv
+npm i bcryptjs
+npm i jsonwebtoken
 ```
 
 ## package.json
