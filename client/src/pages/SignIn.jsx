@@ -6,9 +6,13 @@ import {
   signInSuccess,
   signInFailure,
 } from "../redux/user/userSlice";
+import OAuth from "../components/OAuth.jsx";
+import Facebook from "../components/Facebook.jsx";
 
 export default function SignIn() {
-  const [formData, setFormData] = useState();
+  const [formData, setFormData] = useState({});
+  // const [errorMessage, setErrorMessage] = useState(null);
+  // const [loading, setLoading] = useState(false);
   const { loading, error: errorMessage } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,13 +28,15 @@ export default function SignIn() {
     e.preventDefault();
 
     if (!formData.email || !formData.password) {
-      dispatch(signInFailure("모든 영역을 채워주세요!"));
+      // return setErrorMessage("모든 영역을 채워주세요!");
+      return dispatch(signInFailure("모든 영역을 채워주세요!"));
     }
 
-    // 유효성 검사
-
     try {
+      // setLoading(true);
+      // setErrorMessage(null);
       dispatch(signInStart());
+
       const res = await fetch("/api/auth/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -38,15 +44,19 @@ export default function SignIn() {
       });
       const data = await res.json();
 
-      if (data.success == false) {
+      if (data.success === false) {
+        // return setErrorMessage(data.message);
         dispatch(signInFailure(data.message));
       }
+      // setLoading(false);
 
       if (res.ok) {
         dispatch(signInSuccess(data));
         navigate("/");
       }
     } catch (error) {
+      // setErrorMessage(error.message);
+      // setLoading(false);
       dispatch(signInFailure(errorMessage));
     }
   };
@@ -76,6 +86,8 @@ export default function SignIn() {
               onChange={handleChange}
             />
           </div>
+          <OAuth />
+          <Facebook />
           {errorMessage && (
             <div className="mt-5 p-2 text-red-500 bg-red-200">
               {errorMessage}

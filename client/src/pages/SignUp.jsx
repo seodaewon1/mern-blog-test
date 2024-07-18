@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import OAuth from "../components/OAuth.jsx";
+import Facebook from "../components/Facebook.jsx";
 
 export default function SignUp() {
   const [formData, setFormData] = useState();
@@ -98,6 +100,8 @@ export default function SignUp() {
                 "회원가입하기"
               )}
             </button>
+            <OAuth />
+            <Facebook />
           </div>
           <Link to="/">계정이 있나요?</Link>
         </form>
