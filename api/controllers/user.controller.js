@@ -1,11 +1,13 @@
 import bcryptjs from "bcryptjs";
 import { errorHandler } from "../utils/error.js";
 import User from "../models/user.model.js";
+import { json } from "stream/consumers";
 
 export const test = (req, res) => {
   res.json({ message: "API가 작동되고 있습니다." });
 };
 
+// 프로필 수정
 export const updateUser = async (req, res, next) => {
   // 아이디 확인
   if (req.user.id !== req.params.userId) {
@@ -55,6 +57,28 @@ export const updateUser = async (req, res, next) => {
     );
     const { password, ...rest } = updatedUser._doc;
     res.status(200).json(rest);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// 회원 탈퇴
+export const deleteUser = async (req, res, next) => {
+  if (req.user.id !== req.params.userId) {
+    return next(errorHandler(403, "회원 계정을 삭제할 수 없습니다."));
+  }
+  try {
+    await User.findByIdAndDelete(req.params.userId);
+    res.status(200).json("회원 계정이 삭제되었습니다.");
+  } catch (error) {
+    next(error);
+  }
+};
+
+// 로그아웃
+export const signout = (req, res, next) => {
+  try {
+    res.clearCookie("access_token").status(200).json("로그아웃 되었습니다.!!");
   } catch (error) {
     next(error);
   }

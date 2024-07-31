@@ -2,11 +2,18 @@ import { Link } from "react-router-dom";
 import { IoMdMenu, IoMdMoon, IoMdSunny } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../redux/theme/themeSlice";
+import { useState } from "react";
 
 export default function Header() {
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
   const { theme } = useSelector((state) => state.theme);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <section
       id="header"
@@ -45,14 +52,17 @@ export default function Header() {
               <>
                 <img
                   src={currentUser.profilePicture}
+                  onClick={toggleMenu}
                   className="rounded-full w-11 h-11 "
                 />
-                <div className="absolute flex flex-col p-4 border top-24 right-5 text-xl">
-                  <span>{currentUser.username}</span>
-                  <span>{currentUser.email}</span>
-                  <Link to={"/dashboard?tab=profile"}>Profile</Link>
-                  <span>SignOut</span>
-                </div>
+                {isMenuOpen && (
+                  <div className="absolute flex flex-col p-4 border top-24 right-5 text-xl">
+                    <span>{currentUser.username}</span>
+                    <span>{currentUser.email}</span>
+                    <Link to={"/dashboard?tab=profile"}>Profile</Link>
+                    <span>SignOut</span>
+                  </div>
+                )}
               </>
             ) : (
               <div></div>
