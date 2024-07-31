@@ -7,7 +7,6 @@ import {
   signInFailure,
 } from "../redux/user/userSlice";
 import OAuth from "../components/OAuth.jsx";
-import Facebook from "../components/Facebook.jsx";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -86,8 +85,8 @@ export default function SignIn() {
               onChange={handleChange}
             />
           </div>
-          <OAuth />
-          <Facebook />
+      
+
           {errorMessage && (
             <div className="mt-5 p-2 text-red-500 bg-red-200">
               {errorMessage}
@@ -105,6 +104,7 @@ export default function SignIn() {
                 "로그인하기"
               )}
             </button>
+            <OAuth />
           </div>
           <Link to="/">계정이 없나요?</Link>
         </form>

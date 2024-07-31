@@ -65,6 +65,6 @@ npm i jsonwebtoken
 
 
 
-<!-- http://blankcorp.kr/sp.php?p=11 -->
+
 <!-- https://pony.studio/design-for-growth/blog -->
 ```

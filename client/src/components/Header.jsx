@@ -18,7 +18,7 @@ export default function Header() {
         </Link>
       </h1>
       <nav>
-        <ul className="flex font-Popphins text-2xl">
+        <ul className="flex font-Popphins text-2xl items-center font-semibold">
           <li className="px-4">
             <Link to="/home">Home</Link>
           </li>
@@ -28,7 +28,10 @@ export default function Header() {
           <li className="px-4">
             <Link to="/sign-up">Sign Up</Link>
           </li>
-          <div className="flex">
+          <li className="px-4 mr-10">
+            <Link to="/dashboard">DashBoard</Link>
+          </li>
+          <div className="flex items-center">
             <button className="p-3 mr-1 border rounded-full hover:bg-slate-100">
               <IoMdMenu className="w-6 h-6" />
             </button>
@@ -44,15 +47,15 @@ export default function Header() {
                   src={currentUser.profilePicture}
                   className="rounded-full w-11 h-11 "
                 />
-                <div className="absolute flex flex-col p-4 border top-20 right-5">
+                <div className="absolute flex flex-col p-4 border top-24 right-5 text-xl">
                   <span>{currentUser.username}</span>
                   <span>{currentUser.email}</span>
                   <Link to={"/dashboard?tab=profile"}>Profile</Link>
-                  <span>signOut</span>
+                  <span>SignOut</span>
                 </div>
               </>
             ) : (
-              <Link to={"/sign-in"}>로그인</Link>
+              <div></div>
             )}
           </div>
         </ul>
