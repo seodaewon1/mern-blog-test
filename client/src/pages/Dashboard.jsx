@@ -26,7 +26,7 @@ export default function Dashboard() {
       <div className="dash__right w-full h-screen">
         {tab === "profile" && <DashProfile />}
         {tab === "users" && <DashUsers />}
-        {tab === "post" && <DashPosts />}
+        {tab === "posts" && <DashPosts />}
         {tab === "comments" && <Dashcomments />}
       </div>
     </div>

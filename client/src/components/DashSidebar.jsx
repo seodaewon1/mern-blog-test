@@ -19,7 +19,7 @@ export default function DashSidebar() {
   }, [location.search]);
 
   return (
-    <div>
+    <div className="font-Popphins text-2xl font-semibold">
       <ul className="flex flex-col gap-3 p-3  font-Popphins text-2xl">
         <li className={`profile ${tab === "profile" ? "text-red-500" : ""}`}>
           <Link to="/dashboard?tab=profile" className="flex items-center gap-1">

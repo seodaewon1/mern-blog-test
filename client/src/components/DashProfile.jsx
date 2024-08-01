@@ -254,7 +254,7 @@ export default function DashProfile() {
             )}
             <button
               type="submit"
-              className="w-full py-3 px-10 text-white rounded-md block bg-black"
+              className="w-full p-3 px-10 text-white rounded-md block bg-slate-800"
             >
               수정하기
             </button>
@@ -262,7 +262,7 @@ export default function DashProfile() {
               <Link to={"/create-post"}>
                 <button
                   type="button"
-                  className="w-full p-5 px-10 mt-3 text-white bg-red-600 rounded-full"
+                  className="w-full p-3 px-10 mt-5 text-white rounded-md block bg-black"
                 >
                   글쓰기
                 </button>
