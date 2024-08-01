@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AiOutlineProfile } from "react-icons/ai";
+import { useSelector } from "react-redux";
 
 export default function DashSidebar() {
   const location = useLocation();
   const [tab, setTab] = useState("");
 
+  const { currentUser } = useSelector((state) => state.user);
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const tabFromUrl = urlParams.get("tab");
@@ -25,10 +27,38 @@ export default function DashSidebar() {
             Profile
           </Link>
         </li>
-        <li className="">users</li>
-        <li className="">posts</li>
-        <li className="">comments</li>
-        <li className="">signout</li>
+        {currentUser.isAdmin && (
+          <li className="">
+            <Link to="/dashboard?tab=users" className="flex items-center gap-1">
+              Users
+            </Link>
+          </li>
+        )}
+
+        {currentUser.isAdmin && (
+          <li className="">
+            <Link to="/dashboard?tab=posts" className="flex items-center gap-1">
+              Posts
+            </Link>
+          </li>
+        )}
+
+        {currentUser.isAdmin && (
+          <li className="">
+            <Link
+              to="/dashboard?tab=comments"
+              className="flex items-center gap-1"
+            >
+              Comments
+            </Link>
+          </li>
+        )}
+
+        <li className="">
+          <Link to="/" className="flex items-center gap-1">
+            Signout
+          </Link>
+        </li>
       </ul>
     </div>
   );
