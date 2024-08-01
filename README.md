@@ -14,6 +14,7 @@ cd client
 npm run dev
 npm i react-router-dom
 npm i react-icons
+npm i react-quill
 
 npm install @reduxjs/toolkit
 npm install react-redux

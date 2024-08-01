@@ -18,6 +18,7 @@ import {
   signoutSuccess,
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function DashProfile() {
   const { currentUser, error } = useSelector((state) => state.user);
@@ -257,6 +258,17 @@ export default function DashProfile() {
             >
               수정하기
             </button>
+            {currentUser.isAdmin && (
+              <Link to={"/create-post"}>
+                <button
+                  type="button"
+                  className="w-full p-5 px-10 mt-3 text-white bg-red-600 rounded-full"
+                >
+                  글쓰기
+                </button>
+              </Link>
+            )}
+
             <div className="flex justify-between mt-3 text-red-500">
               <span
                 className="cursor-pointer"
