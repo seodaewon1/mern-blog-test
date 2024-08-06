@@ -56,7 +56,7 @@ export default function Header() {
                   className="rounded-full w-11 h-11 "
                 />
                 {isMenuOpen && (
-                  <div className="absolute flex flex-col p-4 border top-24 right-5 text-xl">
+                  <div className="absolute flex flex-col p-4 border top-24 right-5 text-xl bg-slate-100">
                     <span>{currentUser.username}</span>
                     <span>{currentUser.email}</span>
                     <Link to={"/dashboard?tab=profile"}>Profile</Link>
