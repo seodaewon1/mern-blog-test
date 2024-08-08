@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+
 import userRoutes from "./routes/user.route.js";
 import authRoutes from "./routes/auth.route.js";
 import postRoutes from "./routes/post.route.js";
@@ -16,19 +17,12 @@ app.use(express.json());
 app.use(cookieParser());
 
 mongoose
-  .connect(process.env.MONGO, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 30000, // 30초로 설정
-    connectTimeoutMS: 30000, // 30초로 설정
-    socketTimeoutMS: 45000, // 45초로 설정
-    bufferMaxEntries: 0,
-  })
+  .connect(process.env.MONGO)
   .then(() => {
     console.log("몽고DB 연결 성공!");
   })
   .catch((err) => {
-    console.error("몽고DB 연결 실패:", err);
+    console.log(err);
   });
 
 const __dirname = path.resolve();
